@@ -4,3 +4,11 @@
 ```shell
 python -m task < input1.txt
 ```
+
+
+```shell
+git add *
+git commit -m "commit message"
+git push
+
+```

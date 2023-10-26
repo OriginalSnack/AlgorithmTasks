@@ -19,3 +19,5 @@ for item in s:
     lst.add((x, y))
 if is_everything_Ok:
     print("Looks OK.")
+
+lst = [int(i) for i in input().split()]
