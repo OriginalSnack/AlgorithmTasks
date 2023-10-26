@@ -1,55 +1,40 @@
-#Step 1
-n,m  = list(map(int, input().split()))
-list=list(map(int,input().split()))
-#Step 2
-m*=100
-list = [i * 100 for i in list]
-#Step 3
-list.sort()
-index_of_low=0
-#Step 4
-while m>0:
-    lowest_value=list[0]
-    index_of_low = 0
-    for i in range(1, len(list)):
-        if list[i]==lowest_value:
-            index_of_low+=1
-        else:
-            break
-    #Step 5
-    if index_of_low+1<len(list):
-        nextDifference=list[index_of_low+1]-list[index_of_low]
+#0890
+# def worker(s):
+#     walter=list(s)
+#     count=0
+#     for i in range(len(walter)-1):
+#         if walter[i]==walter[i+1]:
+#             if walter[i]=='B':
+#                 walter[i]=='Y'
+#                 count+=1
+#             else:
+#                 walter[i]=='B'
+#                 count+=1
+#     return count
+# s=input()
+# print(worker(s))
+def balls(a,b):
+    list_y=['Y']*a
+    list_g=['G']*b
+    list_end=[]
+    if len(list_g)>len(list_y):
+        # while(len(list_g)!=0):
+        #     list_end.append('G')
+        #     list_end.append('Y')
+        #     list_g.pop()
+        #     list_y.pop()
+        for i in range(a+b):
+            list_end.append('G')
+            list_end.append('Y')
     else:
-        nextDifference=10**12
-    ammount_of_lowesr_values=index_of_low+1
-    #Step 6
-    if nextDifference*ammount_of_lowesr_values>m:
-        difference=m//ammount_of_lowesr_values
-        for i in range(index_of_low,-1,-1):
-            list[i]+=difference
-            m-=difference
-        #остача
-        for i in range(index_of_low, -1, -1):
-            if m==0: break
-            list[i]+=1
-            m-=1
-    else:
-        nextDifference=list[index_of_low+1]-list[index_of_low]
-        for i in range(index_of_low, -1, -1):
-            list[i] += nextDifference
-            m -= nextDifference
-#Step 7
-print(" ".join(
-    map(lambda x: f"{x/100:.2f}", list)
-))
-
-
-
-
-
-
-
-
+        while(len(list_y)!=0):
+            list_end.append('Y')
+            list_end.append('G')
+            list_y.pop()
+            list_g.pop()
+    return list_end
+a,b =map(int,input().split())
+print(balls(a,b))
 
 
 
